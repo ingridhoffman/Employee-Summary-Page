@@ -57,4 +57,4 @@ Files/code provided for this assignment:
 
 ### Tests
 
-Test files are included with this application in the test folder. Currently, only Employee, and Manager tests pass.
+Test files for class scripts are included with this application in the test folder. All tests pass.
