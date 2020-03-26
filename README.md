@@ -42,6 +42,7 @@ THEN the input is validated for proper expected format
 
 1. Run tests provided to understand required code functionality
 2. Create code for each class to pass all tests
+3. Create code for html creation using temp team profiles
 
 ### Priorities
 
