@@ -46,9 +46,9 @@ THEN the input is validated for proper expected format
 4. Create inquirer code for getting and saving user info
 5. Create validations for user input
 
-### Priorities
+### Known Issues
 
-1. Make methods as pure and simple as possible to ensure ease of testing and adaptability for future use of code
+1. Existence of ouput folder should be validated and directory should be created if it does not exist.
 
 ### Credits
 
