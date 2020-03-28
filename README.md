@@ -44,6 +44,7 @@ THEN the input is validated for proper expected format
 2. Create code for each class to pass all tests
 3. Create code for html creation using temp team profiles
 4. Create inquirer code for getting and saving user info
+5. Create validations for user input
 
 ### Priorities
 

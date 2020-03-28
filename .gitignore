@@ -1,1 +1,8 @@
+# node modules
 node_modules
+
+# generated html file in output
+output/*
+
+# mac attribute file
+.DS_Store

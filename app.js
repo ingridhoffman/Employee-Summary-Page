@@ -9,30 +9,38 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const render = require("./lib/htmlRenderer");
 
-// WHY?
+// Path for output
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-// Variable to hold team members
-const team = [];
+// USER INPUT VALIDATION
+// Valid string
+const validString = async input => (input !== "" ? true : "Invalid input");
+// Valid number
+const validNumber = async input => (input !== "" && !isNaN(input) ? true : "Invalid input");
+// Valid email
+const validEmail = input => (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input) ? true : "Invalid input");
 
-// USER PROMPTS
+/// USER PROMPTS
 // general Employee questions
 const employeeQuestions = [
 	{
 		type: "employeeInfo",
 		name: "name",
-		message: "Name:"
+		message: "Name:",
+		validate: validString
 	},
 	{
 		type: "employeeInfo",
 		name: "id",
-		message: "ID:"
+		message: "ID:",
+		validate: validNumber
 	},
 	{
 		type: "employeeInfo",
 		name: "email",
-		message: "Email:"
+		message: "Email:",
+		validate: validEmail
 	}
 ];
 // Manager questions
@@ -40,7 +48,8 @@ const managerQuestions = [
 	{
 		type: "employeeInfo",
 		name: "officeNumber",
-		message: "Office number:"
+		message: "Office number:",
+		validate: validNumber
 	}
 ];
 // Engineer questions
@@ -48,7 +57,8 @@ const engineerQuestions = [
 	{
 		type: "employeeInfo",
 		name: "github",
-		message: "GitHub username:"
+		message: "GitHub username:",
+		validate: validString
 	}
 ];
 // Intern questions
@@ -56,7 +66,8 @@ const internQuestions = [
 	{
 		type: "employeeInfo",
 		name: "school",
-		message: "School attending:"
+		message: "School attending:",
+		validate: validString
 	}
 ];
 // Next team member to be added
@@ -72,6 +83,8 @@ const nextTeamMember = [
 // MAIN FUNCTION
 // Async wrapper function to await prompts
 async function createTeam() {
+	// Variable to hold team members
+	const team = [];
 	// Start with Manager
 	let role = "Manager";
 	// Until user indicates there are no more team members
@@ -105,9 +118,6 @@ async function createTeam() {
 	}
 	// Render HTML
 	const html = render(team);
-
-	// Hint: you may need to check if the `output` folder exists and create it if it
-	// does not. WHY? If we setup the folder system?
 
 	// Create HTML file
 	fs.writeFile(outputPath, html, err => {
