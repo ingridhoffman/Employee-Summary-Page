@@ -2,7 +2,7 @@
 node_modules
 
 # generated html file in output
-output/*
+team.html
 
 # mac attribute file
 .DS_Store
